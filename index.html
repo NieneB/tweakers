@@ -341,20 +341,13 @@
           <img src="img/webmap/tile_creation.png" width="50%">
         </section>
         <section>
-          <img src="img/webmap/tile_zoom.png" />
-        </section>
-        <section>
-          <blockquote>
-            <p>millions of bits of information on a single page. No other method for the display of
-              statistical information is so powerful.</p>
-              <p> Edward R. Tufte</p>
-          </blockquote>
-        </section>
-        <section>
           <h1>Styling tiles</h1>
           <p>styling per zoom level </p>
           <p>Lot's and lot's of geo data! </p>
           <p> <a href="https://mapserver.org/ogc/sld.html">SLD</a> & <a href="https://www.mapserver.org/mapfile/">Mapfile</a> styling.. </p>
+        </section>
+        <section>
+          <img src="img/webmap/tile_zoom.png" />
         </section>
         <section>
 <pre><code data-trim ><?xml version="1.0" encoding="UTF-8"?>
@@ -363,24 +356,24 @@ xmlns:ogc="http://www.opengis.net/ogc"
 xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xsi:schemaLocation="http://www.opengis.net/sld
 http://schemas.opengis.net/sld/1.0.0/StyledLayerDescriptor.xsd">
-<NamedLayer>
-<Name>country_bounds</Name>
-<UserStyle>
-<Title>xxx</Title>
-<FeatureTypeStyle>
-<Rule>
-<LineSymbolizer>
-<Geometry>
-<ogc:PropertyName>center-line</ogc:PropertyName>
-</Geometry>
-<Stroke>
-<CssParameter name="stroke">#0000ff</CssParameter>
-</Stroke>
-</LineSymbolizer>
-</Rule>
-</FeatureTypeStyle>
-</UserStyle>
-</NamedLayer>
+  <NamedLayer>
+    <Name>country_bounds</Name>
+    <UserStyle>
+    <Title>xxx</Title>
+    <FeatureTypeStyle>
+      <Rule>
+        <LineSymbolizer>
+          <Geometry>
+            <ogc:PropertyName>center-line</ogc:PropertyName>
+          </Geometry>
+          <Stroke>
+            <CssParameter name="stroke">#0000ff</CssParameter>
+          </Stroke>
+        </LineSymbolizer>
+      </Rule>
+    </FeatureTypeStyle>
+    </UserStyle>
+  </NamedLayer>
 </StyledLayerDescriptor>
 </code>
 </pre>
@@ -471,21 +464,21 @@ http://schemas.opengis.net/sld/1.0.0/StyledLayerDescriptor.xsd">
         </section>
         <section>
           <h1> style.json</h1>
-<pre><code data-trim data-noescape>
+<pre><code data-trim>
 {
-"version": 8,
-"name": "Mijn eigen Stijl",
-"sprite": "url",
-"glyphs": "url/{fontstack}/{range}.pbf",
-"sources": {...},
-"layers": [
-{
-"id": "background",
-"type": "background",
-"paint": { "background-color":"#FFFFFF" }
-},
-{...}
-]
+  "version": 8,
+  "name": "Mijn eigen Stijl",
+  "sprite": "url",
+  "glyphs": "url/{fontstack}/{range}.pbf",
+  "sources": {...},
+  "layers": [
+    {
+      "id": "background",
+      "type": "background",
+      "paint": { "background-color":"#FFFFFF" }
+    },
+    {...}
+  ]
 }
 </code></pre>
         </section>
@@ -512,8 +505,7 @@ let points = turf.randomPoint(25, {bbox: [-180, -90, 180, 90]});
         </section>
         <section>
           <h3>Alright. Fun. </h3>
-          <p style="font-size:1.5em;" class="fragment appear"> "But I can't read those labels! Where are
-            my reading glasses?" </p>
+          <p style="font-size:1.5em;" class="fragment appear"> "But I can't read those labels! Where are my reading glasses?" </p>
         </section>
         <section data-background-color="#f2f2f2" data-background-iframe="https://nieneb.github.io/font_size_embed/"
           data-background-interactive>
@@ -568,11 +560,12 @@ let points = turf.randomPoint(25, {bbox: [-180, -90, 180, 90]});
           <img src="https://media.giphy.com/media/142na7ROkljwKA/giphy.gif" width="500" />
         </section>
         <section>
-          <p class="fragment appear"><a href="https://d3js.org/">D3.js</a> for data driven info graphics</p>
-          <p class="fragment appear"><a href="">Turf.js</a> for geospatial computation in the browser</p>
+
           <p class="fragment appear"><a href="http://leafletjs.com/">Leaflet.js</a> for simple light weight raster web maps</p>
           <p class="fragment appear"><a href="https://openlayers.org/">OpenLayers</a> for more elaborate raster web map   with more functionality     </p>
           <p class="fragment appear"> <a href="https://developers.arcgis.com/javascript/">ArcGIS Javascript API</a> if         your client uses ESRI          software </p>
+          <p class="fragment appear"><a href="https://d3js.org/">D3.js</a> for data driven info graphics</p>
+
         </section>
         <section>
           <p class="fragment appear"><a href="https://www.mapbox.com/mapbox.js/api/v3.1.1/">MapboxGL.js</a> for vector    tiles</p>
@@ -582,14 +575,15 @@ let points = turf.randomPoint(25, {bbox: [-180, -90, 180, 90]});
           <p class="fragment appear"><a href="https://developer.here.com/develop/javascript-api">HERE Maps</a> and <a
             href="https://developers.google.com/maps/documentation/javascript/">Google Maps
             API</a> for navigation, Google services and commercial goals</p>
+  <p class="fragment appear"><a href="">Turf.js</a> for geospatial computation in the browser</p>
         </section>
         <section>
           <h1>Main considerations</h1>
           <p>Open source vs closed source</p>
-          <p>Mobile vs desktop</p>
-          <p>Raster vs Vector </p>
           <p>Amount of Interactivity or GIS functionality</p>
           <p>Amount of data to show</p>
+          <p>Raster vs Vector </p>
+          <p>projection</p>
         </section>
         <section>
           <h1>Let's look at:</h1>
@@ -646,11 +640,11 @@ let points = turf.randomPoint(25, {bbox: [-180, -90, 180, 90]});
         </section>
         <section>
 <pre><code data-trim data-noescape>
-  let map = L.map('mapid').setView([51.505, -0.09], 13);
+let map = L.map('mapid').setView([51.505, -0.09], 13);
 
-  L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; OpenStreetMap contributors'
-  }).addTo(map);
+L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+  attribution: '&copy; OpenStreetMap contributors'
+}).addTo(map);
 </code></pre>
         </section>
         <section>
@@ -658,17 +652,17 @@ let points = turf.randomPoint(25, {bbox: [-180, -90, 180, 90]});
           <p>WMS, WFS (slow)</p>
           <p>GeoJSON</p>
 <pre><code data-trim data-noescape>
-  let marker = L.marker([52.372825, 4.900321]).addTo(map);
+let marker = L.marker([52.372825, 4.900321]).addTo(map);
 
-  // ADD a WMS layer
-  let cbs = L.tileLayer.wms('https://geodata.nationaalgeoregister.nl/wijkenbuurten2018/wms', {
-    'layers': 'cbs_buurten_2018',
-    'styles': 'wijkenbuurten2018:wijkenbuurten_thema_buurten_gemeentewijkbuurt_percentage_eenpersoonshuishoudens',
-    'srs': 'EPSG:28992',
-    'format': 'image/png',
-    'transparent': true,
-    'opacity': 0.5
-  }).addTo(map);
+// ADD a WMS layer
+let cbs = L.tileLayer.wms('https://geodata.nationaalgeoregister.nl/wijkenbuurten2018/wms', {
+  'layers': 'cbs_buurten_2018',
+  'styles': 'wijkenbuurten2018:wijkenbuurten_thema_buurten_gemeentewijkbuurt_percentage_eenpersoonshuishoudens',
+  'srs': 'EPSG:28992',
+  'format': 'image/png',
+  'transparent': true,
+  'opacity': 0.5
+}).addTo(map);
 </code></pre>
           </section>
           <section>
@@ -737,29 +731,29 @@ let map = new mapboxgl.Map({
       <section>
         <h1> style.json</h1>
 <pre><code data-trim data-noescape>
+{
+  "version": 8,
+  "name": "Mijn eigen Stijl",
+  "sprite": "url",
+  "glyphs": "url/{fontstack}/{range}.pbf",
+  "sources": {...},
+  "layers": [
   {
-    "version": 8,
-    "name": "Mijn eigen Stijl",
-    "sprite": "url",
-    "glyphs": "url/{fontstack}/{range}.pbf",
-    "sources": {...},
-    "layers": [
-    {
-      "id": "background",
-      "type": "background",
-      "paint": { "background-color":"#FFFFFF" }
-    },
-    {
-      "id":"water",
-      "source": "osm",
-      "source-layer":"water",
-      "paint":{
-        "fill-color":"#0000ff"
-      }
-    },
-    {...}
-    ]
-  }
+    "id": "background",
+    "type": "background",
+    "paint": { "background-color":"#FFFFFF" }
+  },
+  {
+    "id":"water",
+    "source": "osm",
+    "source-layer":"water",
+    "paint":{
+      "fill-color":"#0000ff"
+    }
+  },
+  {...}
+  ]
+}
 </code></pre>
         </section>
         <section>
@@ -853,78 +847,30 @@ let map = new mapboxgl.Map({
         <a href="https://nextcity.org/features/view/the-new-cartographers">[source]</a>
       </small>
     </section>
-    <!-- <section data-background="http://blogs.discovermagazine.com/citizen-science-salon/files/2015/10/shutterstock_260023832.jpg">
-      <blockquote style="width: 50%">
-        There has never been more open data available than at this moment in time, and everyone from global NGOs to armchair hobbyists are using that data to create maps.
-        <small>
-          <a href="https://nextcity.org/features/view/the-new-cartographers">[source]</a>
-        </small></blockquote>
-        <aside class="notes">
-          Daarnaast + Meer data + Meer techniek </br>
-          + open-source mogelijkeheden >
+    <section>
+      <div style="background-color: rgba(255,255,255,0.8); padding:20px;">
         </br>
-        iedereen kan cartograaf spelen..
-      </aside>
-    </section> -->
-    <!-- <section data-background="img/achtergrondje.png">
-      <blockquote style="width: 50%">
-<h1>Web Mapping</h1>
-<ul>
-
-
-            <li>Interaction</li>
-            <li>User-Experience</li>
-          </ul>
-        </ul>
+        <q>The realization of the interactive map as an experience, not just a map design.</q>
         <small>
           <a href="https://www.slideshare.net/jatorre/siglibre-english-17036935">[source]</a>
         </small>
-      </blockquote> -->
-      <!-- <aside class="notes">
-        maar onderdeel vna iets groters </br>
-        Geo is overal. Elke dataset bevat wel geo. Elke ontwikkelaar werkt er wel eens mee zonder het te beseffen.
+      </div>
+      <aside class="notes">
+        Wat is web mapping geworden:</br>
+        We ontwerpen interactief. op data. Meerdere zoom levels. Geen legenda's. Met klik interacties om meer info te laten
+        zien. De gebruiker
+        bepaalt wat hij ziet op een kaart. Niet meer de cartograaf...
       </br>
-      Mass consumption > iedereen maakt kaarten en wil verhalen vertellen met kaarten. Zie in kranten, nieuws etc.
-      Tegenwoordig
-      zijn kaarten ontzettend populair. iedereen kent kaarten en snapt het. Google maps is main stream. Design is
-      belangrijk!
-    </br>
-    Meer tools en data beschikbaar. Het wordt ook makkelijker.
-    </aside>
-    </section> -->
-
-    <!-- <section>
-    GeoPortals.. Ugh.
-    Desing Usability Experience.
-    Een lengenda is het bewijs dat een kaart niet goed ontworpen is.
-    </section> -->
-    <section>
-      <div style="background-color: rgba(255,255,255,0.8); padding:20px;">
-
+      Gebruiksvriendelijkeheid.
       </br>
-      <q>The realization of the interactive map as an experience, not just a map design.</q>
-      <small>
-        <a href="https://www.slideshare.net/jatorre/siglibre-english-17036935">[source]</a>
-      </small>
-    </div>
-    <aside class="notes">
-      Wat is web mapping geworden:</br>
-      We ontwerpen interactief. op data. Meerdere zoom levels. Geen legenda's. Met klik interacties om meer info te laten
-      zien. De gebruiker
-      bepaalt wat hij ziet op een kaart. Niet meer de cartograaf...
-    </br>
-    Gebruiksvriendelijkeheid.
-    </br>
-    Realiseeren dat een kaart meer is dan cartografie.
-    </aside>
-
-    </section>
+      Realiseeren dat een kaart meer is dan cartografie.
+      </aside>
+      </section>
     <section>
-
     <ol>
-      <li>You need to be able to <b class="fragment grow">find, manipulate, and store spatial and non-spatial data</b>.</li>
+      <li>You need to be able to <b>find, manipulate, and store spatial and non-spatial data</b>.</li>
     <li>You need to be able to design a functional and <b> attractive cartographic representation</b> of that data as well as the <b>UI controls</b> to operate it</li>
-    <li>You need to be able to implement that design through <b>code<b></li>
+    <li>You need to be able to implement that design through <b>code</b></li>
   </ol>
 <p>
 <a href="https://www.axismaps.com/blog/2012/09/advice-to-the-aspiring-interactive-cartographer/">source </a></p>
